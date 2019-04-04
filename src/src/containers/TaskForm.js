@@ -151,6 +151,7 @@ const TaskForm = () => {
     < >
       <TaskFormLayout
         showForm={showTaskForm}
+        label={currentTask.id ? 'Редактирование' : 'Новая задача'}
         onClose={handleClose}
         onSubmit={handleSubmit}
       >

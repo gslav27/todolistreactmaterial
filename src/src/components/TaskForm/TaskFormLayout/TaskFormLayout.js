@@ -18,6 +18,7 @@ const styles = theme => TaskFormLayoutStyles(theme);
 
 const TaskFormLayout = ({
   showForm,
+  label,
   onSubmit,
   onClose,
   children,
@@ -44,7 +45,7 @@ const TaskFormLayout = ({
             variant='h5'
             color='inherit'
           >
-            Новая задача
+            {label}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -76,6 +77,7 @@ const TaskFormLayout = ({
 
 TaskFormLayout.propTypes = {
   showForm: PropTypes.bool.isRequired,
+  label:    PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onClose:  PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
