@@ -1,5 +1,6 @@
 const merge = require('webpack-merge');
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -13,6 +14,9 @@ const prodConfiguration = {
       chunks: 'all',
       minChunks: 2,
     },
+    minimizer: [
+      new UglifyJsPlugin({ uglifyOptions: { output: { comments: false } } }),
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({

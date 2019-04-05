@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 
 import Header from './components/Header/Header';
 import Tasks from './containers/Tasks';
 import AddNewTask from './containers/AddNewTask';
-import TaskForm from './containers/TaskForm';
+
+const taskFormPromise = import(/* webpackChunkName: 'TaskForm' */ './containers/TaskForm');
+const TaskForm = lazy(() => taskFormPromise);
+
 
 
 const App = () => (
@@ -11,7 +14,9 @@ const App = () => (
     <Header />
     <Tasks />
     <AddNewTask />
-    <TaskForm />
+    <Suspense fallback={null}>
+      <TaskForm />
+    </Suspense>
   </>
 );
 
